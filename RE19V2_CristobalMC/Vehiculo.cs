@@ -14,10 +14,15 @@ public class Vehiculo
 		const int TAM_MAX_MODELO = 25;
 		const int TAM_MIN_MODELO = 4;
 		const string TIPOS_VEHICULOS = "TURISMO MOTO FURGONETA CAMIÓN";
+
+		const float PRECIO_MIN = 1000f;
+		const float PRECIO_MAX = 10000f;
+		const float PRECIO_DEF = 0;
 		// MIEMBROS / CAMPOS
 		private string _marca;
 		private string _modelo;
 		private string _tipoVehiculo;
+		private float _precioContado;
 		// CONSTRUCTORES
 
 		#region PROPIEDADES
@@ -67,6 +72,20 @@ public class Vehiculo
 				_tipoVehiculo = value;
 			}
 		}
+		public float PrecioContado
+		{
+			get
+			{
+				if (_precioContado == PRECIO_DEF)
+					throw new Exception("ERROR: El precio del vehículo no se ha establecido");
+				return _precioContado;
+			}
+			set
+			{
+				ValidarPrecio(value);
+				_precioContado = value;
+			}
+		}
         #endregion
 
         #region MÉTODOS PRIVADOS
@@ -96,7 +115,13 @@ public class Vehiculo
 					throw new Exception("ERROR: No puede haber puntos");
 			}
         }
-
+        private void ValidarPrecio(float precio)
+        {
+            if (precio < PRECIO_MIN)
+                throw new Exception($"ERROR: El precio no puede ser menor que {PRECIO_MIN}");
+            if (precio > PRECIO_MAX)
+                throw new Exception($"Error: El precio no puede ser mayor que {PRECIO_MAX}");
+        }
         #endregion
 
         #region MÉTODOS PÚBLICOS
