@@ -17,7 +17,9 @@ public class Vehiculo
 
 		const float PRECIO_MIN = 1000f;
 		const float PRECIO_MAX = 10000f;
-		const float PRECIO_DEF = 0;
+		const float PRECIO_DEF = 0f;
+
+		const float DESCUENTO = 0.1f;
 		// MIEMBROS / CAMPOS
 		private string _marca;
 		private string _modelo;
@@ -86,6 +88,13 @@ public class Vehiculo
 				_precioContado = value;
 			}
 		}
+		public float PrecioFinanciado
+		{
+			get
+			{
+				return CalcularPrecioFinanciado();
+			}
+		}
         #endregion
 
         #region MÉTODOS PRIVADOS
@@ -125,7 +134,14 @@ public class Vehiculo
         #endregion
 
         #region MÉTODOS PÚBLICOS
+		public float CalcularPrecioFinanciado()
+		{
+			float precioF;
 
+			precioF = PrecioContado - PrecioContado * DESCUENTO;
+
+			return precioF;
+		}
         #endregion
 
 
