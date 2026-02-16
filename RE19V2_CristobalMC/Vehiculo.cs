@@ -25,6 +25,7 @@ public class Vehiculo
 		private string _modelo;
 		private string _tipoVehiculo;
 		private float _precioContado;
+		private DateTime _fechaMatriculacion;
 		// CONSTRUCTORES
 
 		#region PROPIEDADES
@@ -93,6 +94,19 @@ public class Vehiculo
 			get
 			{
 				return CalcularPrecioFinanciado();
+			}
+		}
+		public DateTime FechaMatriculacion
+		{
+			get
+			{
+				return _fechaMatriculacion;
+			}
+			set
+			{
+				// Validación fecha Matriculación
+
+				_fechaMatriculacion = value;
 			}
 		}
         #endregion
