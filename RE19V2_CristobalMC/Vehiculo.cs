@@ -16,7 +16,7 @@ public class Vehiculo
 		const string TIPOS_VEHICULOS = "TURISMO MOTO FURGONETA CAMIÓN";
 
 		const float PRECIO_MIN = 1000f;
-		const float PRECIO_MAX = 10000f;
+		const float PRECIO_MAX = 100000f;
 		const float PRECIO_DEF = 0f;
 		const float DESCUENTO = 0.1f;
 		const int LIMITE_MATRICULACION = 10;
@@ -27,6 +27,20 @@ public class Vehiculo
 		private float _precioContado;
 		private DateTime _fechaMatriculacion;
 		// CONSTRUCTORES
+		public Vehiculo()
+		{
+			_marca = MARCA_MODEL_DEF;
+			_modelo = MARCA_MODEL_DEF;
+			_tipoVehiculo = "TURISMO";
+			_precioContado = PRECIO_DEF;
+		}
+		public Vehiculo(string marca,string modelo)
+		{
+			Marca = marca;
+			Modelo = modelo;
+            _tipoVehiculo = "TURISMO";
+            _precioContado = PRECIO_DEF;
+        }
 		#region PROPIEDADES
 		public string Marca
 	{
@@ -158,7 +172,6 @@ public class Vehiculo
 			fechaActual = fechaActual.AddYears(-LIMITE_MATRICULACION);
 			if (fechaActual > fecha)
 				throw new Exception($"ERROR: El coche tiene más de {LIMITE_MATRICULACION} años");
-
         }
         #endregion
         #region MÉTODOS PÚBLICOS
