@@ -13,13 +13,28 @@ namespace RE19V2_CristobalMC
         {
             // RECURSOS
 
-            byte seleccion = 0;
+            byte seleccion = 1;
 
             // TODO: Implementación del Método ObtenerOpcionMenu
 
             // SALIDA - Método
             return seleccion;
 
+        }
+
+        #endregion
+
+        #region MÉTODOS SALIDA
+        internal static void MostrarListaCoches(Vehiculo[] listaCoches)
+        {
+            Console.Clear();
+
+            Console.WriteLine("\t\tLista de Vehículos");
+            for (int i = 0; i < listaCoches.Length; i++)
+            {
+                Console.WriteLine($"\t{i+1} - {listaCoches[i].Marca} {listaCoches[i].Modelo}");
+            }
+            Console.ReadLine();
         }
         #endregion
     }

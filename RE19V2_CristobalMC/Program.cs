@@ -12,7 +12,8 @@
             Vehiculo[] concesionario;
 
             bool salir = false;
-            byte opcion = 0; // 0 .- SALIR
+            //byte opcion = 0; // 0 .- SALIR
+            byte opcion = 1; //TODO: Prueba opción 1 Menú
             // INICIALIZACIÓN
             // 1.- Carga Inicial de Vehículos
             concesionario = new Vehiculo[NUM_VEHICULOS];
@@ -34,11 +35,13 @@
                         break;
                         // 2.2.2.- Mostrar Listado de Vehículos
                     case 1:
-                        // TODO: Implementación de la acción mostrar listado
+                      
+                        Controlador.MostrarListado(concesionario);
                         break;
                         // 2.2.3.- Mostrar datos de unVehículo
                     case 2:
-                        // TODO: Implementación de la acción mostrar datos de un vehículo
+                        
+                        Controlador.MostrarVehiculo(concesionario);
                         break;
                 }
                 // SALIDA
@@ -66,7 +69,7 @@
             lista[1] = coche;
 
             // Cargar Vehículo 3
-            coche = new Vehiculo("BMW", "M3");
+            coche = new Vehiculo("BMW", "M3 460");
             coche.PrecioContado = 60000;
 
             lista[2] = coche;
