@@ -13,10 +13,22 @@ namespace RE19V2_CristobalMC
             Interfaz.MostrarListaCoches(listaCoches);
         }
 
-        internal static void MostrarVehiculo(Vehiculo[] concesionario)
+        internal static void MostrarVehiculo(Vehiculo[] listaCoches)
         {
+            // RECURSOS
+            int seleccion = 0;
 
-            // TODO: Implementación de la acción mostrar datos de un vehículo
+            // 1.- Mostrar Lista Vehículos
+
+            // 2.- Seleccionar Vehículo
+
+            // 3.- Validar Selección
+
+            // 4.- Mostrar Retroalimentación
+
+            // 5.- Mostrar los datos del Vehículo
+            Interfaz.MostrarDatosCoche(listaCoches[seleccion]);
+            
         }
     }
 }

@@ -21,6 +21,14 @@ namespace RE19V2_CristobalMC
             {
                 esValido = true;
                 // 1.- Mostrar el Menú
+                Console.Clear();
+                Console.WriteLine("\t\t MENÚ DE ACCIONES - CONCESIONARIO");
+                Console.WriteLine("");
+                Console.WriteLine("\t 0 - Salir");
+                Console.WriteLine("\t 1 - Mostrar lista de Vehículos");
+                Console.WriteLine("\t 2 - Mostrar Vehículo");
+                Console.WriteLine("");
+                Console.Write("Opción: ");
                 try
                 {
 
@@ -56,7 +64,6 @@ namespace RE19V2_CristobalMC
             return seleccion;
 
         }
-
         #endregion
 
         #region MÉTODOS SALIDA
@@ -69,6 +76,19 @@ namespace RE19V2_CristobalMC
             {
                 Console.WriteLine($"\t{i+1} - {listaCoches[i].Marca} {listaCoches[i].Modelo}");
             }
+            Console.ReadLine();
+        }
+
+        public static void MostrarDatosCoche(Vehiculo coche)
+        {
+            Console.Clear();
+            Console.WriteLine($"Marca {coche.Marca}");
+            Console.WriteLine($"Modelo: {coche.Modelo}");
+            Console.WriteLine($"Tipo Vehículo: {coche.Tipo}");
+            Console.WriteLine($"`Combustible: {coche.Combustible}");
+            Console.WriteLine($"Estado: {coche.Estado}");
+            Console.WriteLine($"Precio Contado: {coche.PrecioContado}");
+            Console.WriteLine($"Precio Financiado: {coche.PrecioFinanciado}");
             Console.ReadLine();
         }
         #endregion
