@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 namespace RE19V2_CristobalMC
 {
+	public enum TipoVehiculos : byte {Turismo, Furgoneta, Camion};
+	public enum TiposCombustible : byte {Gasolina, Diesel, Electrico, Hibrido};
+	public enum TiposEstado : byte {Nuevo, Ocasion, SegundaMano};
 public class Vehiculo
 {
 		// CONSTANTES
@@ -13,7 +16,7 @@ public class Vehiculo
 		const string MARCA_MODEL_DEF = "Desconocido";
 		const int TAM_MAX_MODELO = 25;
 		const int TAM_MIN_MODELO = 4;
-		const string TIPOS_VEHICULOS = "TURISMO MOTO FURGONETA CAMIÓN";
+		//const string TIPOS_VEHICULOS = "TURISMO FURGONETA CAMIÓN";
 
 		const float PRECIO_MIN = 1000f;
 		const float PRECIO_MAX = 100000f;
@@ -23,7 +26,10 @@ public class Vehiculo
 		// MIEMBROS / CAMPOS
 		private string _marca;
 		private string _modelo;
-		private string _tipoVehiculo;
+		///private string _tipoVehiculo;
+		public TipoVehiculos Tipo;
+		public TiposCombustible Combustible;
+		public TiposEstado Estado;
 		private float _precioContado;
 		private DateTime _fechaMatriculacion;
 		// CONSTRUCTORES
@@ -31,14 +37,20 @@ public class Vehiculo
 		{
 			_marca = MARCA_MODEL_DEF;
 			_modelo = MARCA_MODEL_DEF;
-			_tipoVehiculo = "TURISMO";
+			//_tipoVehiculo = "TURISMO"; Campo privado de la versión anterior
+			Tipo = TipoVehiculos.Turismo;
+			Combustible = TiposCombustible.Diesel;
+			Estado = TiposEstado.Nuevo;
 			_precioContado = PRECIO_DEF;
 		}
 		public Vehiculo(string marca,string modelo)
 		{
 			Marca = marca;
 			Modelo = modelo;
-            _tipoVehiculo = "TURISMO";
+			//_tipoVehiculo = "TURISMO";
+			Tipo = TipoVehiculos.Turismo;
+			Combustible = TiposCombustible.Diesel;
+			Estado = TiposEstado.Nuevo;
             _precioContado = PRECIO_DEF;
         }
 		#region PROPIEDADES
@@ -70,22 +82,22 @@ public class Vehiculo
 				ValidarDato(value, TAM_MAX_MODELO, TAM_MIN_MODELO);
 				_modelo = value; }
 		}
-		public string TipoVehiculo
-		{
-			get
-			{
+		//public string TipoVehiculo
+		//{
+		//	get
+		//	{
 
-				return _tipoVehiculo;
-			}
-			set
-			{
-				// Valdación del Tipo de Vehículo
-				value = value.ToUpper();
-				if (!TIPOS_VEHICULOS.Contains(value))
-					throw new Exception("ERROR: No ha introducido un tipo de vehículo válido");
-				_tipoVehiculo = value;
-			}
-		}
+		//		return _tipoVehiculo;
+		//	}
+		//	set
+		//	{
+		//		// Valdación del Tipo de Vehículo
+		//		value = value.ToUpper();
+		//		if (!TIPOS_VEHICULOS.Contains(value))
+		//			throw new Exception("ERROR: No ha introducido un tipo de vehículo válido");
+		//		_tipoVehiculo = value;
+		//	}
+		//}
 		public float PrecioContado
 		{
 			get

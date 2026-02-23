@@ -84,8 +84,8 @@
             // Cargar Vehículo 5
             coche = new Vehiculo("Ford", "Transit");
             coche.PrecioContado = 5800;
-            coche.TipoVehiculo = "FURGONETA";
-
+            //coche.TipoVehiculo = "FURGONETA";
+            coche.Tipo = TipoVehiculos.Furgoneta;
             lista[4] = coche;
         }
     }

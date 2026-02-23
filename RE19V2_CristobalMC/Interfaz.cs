@@ -11,12 +11,47 @@ namespace RE19V2_CristobalMC
         #region MÉTODOS ENTRADA
         public static byte ObtenerOpcionMenu()
         {
+            // CONSTANTES
+            const byte NUM_OPCIONES = 3;
             // RECURSOS
+            byte seleccion = 0;
+            bool esValido;
+            string mensajeError = "";
+            do
+            {
+                esValido = true;
+                // 1.- Mostrar el Menú
+                try
+                {
 
-            byte seleccion = 1;
 
-            // TODO: Implementación del Método ObtenerOpcionMenu
+                    // 2.- Obtener la Opción
+                    seleccion = Convert.ToByte(Console.ReadLine());
+                    // 3.- Validar la Opción
+                    if (seleccion >= NUM_OPCIONES)
+                    {
+                        throw new OverflowException();
+                    }
+                }
+                catch (FormatException error)
+                {
+                    esValido = false;
+                    mensajeError = "ERROR: Ha introducido caracteres no numéricos";
+                }
+                catch (OverflowException error)
+                {
+                    esValido = false;
+                    mensajeError = "ERROR: Ha introducido un valor fuera del rango";
+                }
+                // 4.- Retroalimentación al Usuario
+                if (!esValido)
+                {
+                    Console.WriteLine(mensajeError);
+                    Console.Write("Pulse Enter para continuar");
+                    Console.ReadLine();
+                }
 
+            } while (!esValido);
             // SALIDA - Método
             return seleccion;
 
